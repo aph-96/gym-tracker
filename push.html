@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Push Day</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Push Day</h1>
+
+    <label>
+      <input type="checkbox" id="locationToggle" />
+      At Home
+    </label>
+
+    <div class="exercise" data-id="bench_press" data-mode="gym">
+      Bench Press <span class="last"></span>
+    </div>
+    <div class="exercise" data-id="incline_db_press" data-mode="gym">
+      Incline DB Press <span class="last"></span>
+    </div>
+    <div class="exercise" data-id="pushup" data-mode="home">
+      Push-ups <span class="last"></span>
+    </div>
+    <div class="exercise" data-id="dumbbell_shoulder_press" data-mode="home">
+      Dumbbell Shoulder Press <span class="last"></span>
+    </div>
+
+    <!-- Modal -->
+    <div id="logModal" hidden>
+      <h2 id="modalTitle"></h2>
+      <p id="lastEntry"></p>
+      <input id="weightInput" placeholder="Weight" />
+      <input id="setsInput" placeholder="Sets" />
+      <input id="repsInput" placeholder="Reps" />
+      <textarea id="notesInput" placeholder="Notes"></textarea>
+      <button id="saveBtn">Save</button>
+      <button onclick="logModal.hidden=true">Cancel</button>
+    </div>
+
+    <!-- Export/Import -->
+    <button id="exportBtn">Export</button>
+    <input type="file" id="importInput" accept="application/json" />
+
+    <script type="module" src="js/page.js"></script>
+  </body>
+</html>
