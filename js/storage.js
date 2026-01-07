@@ -1,18 +1,16 @@
-export const STORAGE_KEY = "gymTracker.workouts.v1";
-let workoutHistory = {};
-
-export function loadWorkouts() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  workoutHistory = saved ? JSON.parse(saved) : {};
+function saveAppData() {
+  localStorage.setItem("appData", JSON.stringify(appData));
 }
-
-export function getLastEntry(id) {
-  const h = workoutHistory[id];
-  return h ? h[h.length - 1] : null;
+function loadAppData() {
+  const stored = localStorage.getItem("appData");
+  if (stored) appData = JSON.parse(stored);
+  return appData;
 }
-
-export function addEntry(id, entry) {
-  if (!workoutHistory[id]) workoutHistory[id] = [];
-  workoutHistory[id].push(entry);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(workoutHistory));
+function updateAppData(callback) {
+  loadAppData();
+  callback(appData);
+  saveAppData();
+}
+function todayKey() {
+  return new Date().toISOString().split("T")[0];
 }
