@@ -2,26 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Gym Tracker</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout Tracker</title>
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <h1>Pick Today’s Workout</h1>
-    <div class="buttons">
-      <button data-day="push">Push</button>
-      <button data-day="pull">Pull</button>
-      <button data-day="legs">Legs</button>
-      <button data-day="upper">Upper</button>
-    </div>
+    <h1>Workout Tracker</h1>
+    <section class="mode-buttons">
+      <button onclick="selectMode('gym')">Gym</button>
+      <button onclick="selectMode('home')">At Home</button>
+    </section>
 
     <script>
-      document.querySelectorAll("button").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          localStorage.setItem("gymTracker.today", btn.dataset.day);
-          window.location.href = `${btn.dataset.day}.html`;
-        });
-      });
+      function selectMode(mode) {
+        localStorage.setItem("selectedMode", mode);
+        window.location.href = "selectWorkout.html";
+      }
     </script>
   </body>
 </html>
