@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Workout</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <!-- App JS -->
+    <script src="js/workoutTypes.js"></script>
+    <script src="js/appData.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/importExport.js"></script>
+  </head>
+  <body>
+    <h1 id="workoutTitle">Workout</h1>
+
+    <!-- Selected exercises for today -->
+    <section id="selectedExercises"></section>
+
+    <hr />
+
+    <h3>Add Exercises</h3>
+    <section id="exercisePicker"></section>
+
+    <button id="completeWorkoutBtn">Complete Workout</button>
+
+    <!-- Import / Export -->
+    <div style="margin-top: 1rem; text-align: center">
+      <button onclick="exportData()">Export Data</button>
+      <input type="file" onchange="importData(this.files[0])" />
+    </div>
+
+    <!-- Modal for logging sets -->
+    <div id="modalBackdrop" class="backdrop"></div>
+    <div id="logModal" class="modal">
+      <h3 id="modalExercise"></h3>
+      <label>Weight:</label><input id="modalWeight" type="text" /><br />
+      <label>Notes:</label><input id="modalNotes" type="text" /><br />
+      <button onclick="saveModal()">Save</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+
+    <script src="js/workout.js" defer></script>
+  </body>
+</html>
